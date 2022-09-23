@@ -1,0 +1,46 @@
+import numpy as np
+import pandas as pd
+import os
+import fontstyle as fs
+import matplotlib.pyplot as plt
+from prettytable import PrettyTable
+
+print("=+=+="*100)
+underline_start  = "\33[4m"
+Underline_end = "\033[0m"
+intro = "Welcome to my project"
+intro = fs.apply(intro,"RED/BOLD/STRIKE/UNDERLINE")
+intro_print = intro.center(150)
+intro = "\33[4m "+"Welcome to my project"
+print( intro_print )
+
+print("\nIn this project: \nWe wil be analysing the data of the some of the top "
+      "Tech related Companies of the 21st century......\n")
+menu="*******Menu*******"
+menu_print=menu.center(50)
+print(underline_start + menu_print + Underline_end)
+
+Menu_Data = PrettyTable(["S.NO.", "Company Name", "Owner", "Any other option"])
+
+# serive providing companies, entertainment services, other servies
+# google separate column : including youtube and all
+#                        : or can write as a google service
+
+Menu_Data.add_row(["1", "Netflix", "B", "91.2 %"])
+Menu_Data.add_row(["2", "Google", "C", "63.5 %"])
+Menu_Data.add_row(["3", "Facebook", "A", "90.23 %"])
+Menu_Data.add_row(["3", "X", "D", "92.7 %"])
+
+
+print(Menu_Data)
+
+
+a=input('Which < Companys > would you like to analyise?     :\t')
+# add by serial number
+if a=="Netflix":
+      print()
+else :
+      print()
+Options=PrettyTable(["Analyes Data ",])
+
+
