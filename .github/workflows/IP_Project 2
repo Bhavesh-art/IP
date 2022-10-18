@@ -1,0 +1,151 @@
+### IMPORTS
+import numpy as np
+import pandas as pd
+import os
+import fontstyle as fs
+import matplotlib.pyplot as plt
+from prettytable import PrettyTable
+
+##Design
+print("=+=+="*100)
+
+
+##Underline Capture
+underline_start  = "\33[4m"
+Underline_end = "\033[0m"
+
+
+## intro
+intro = "Welcome to my project"
+intro = fs.apply(intro,"RED/BOLD/STRIKE/UNDERLINE")
+intro_print = intro.center(150)
+intro = "\33[4m "+"Welcome to my project"
+print( intro_print )
+
+print("\nIn this project: \nWe wil be analysing the data of the some of the top "
+      "Tech related Companies of the 21st century......\n")
+
+
+##Menu
+menu="*******Menu*******"
+menu_print=menu.center(50)
+print(underline_start + menu_print + Underline_end)
+
+
+## if if is not satisfied
+while_1=("Choose the correct Option")
+while_1=fs.apply(while_1,"RED,STRIKE,BLINK")
+while_2=fs.apply("Please enter a valid option!!","RED,STRIKE,BLINK")
+
+
+##Menu Table
+Menu_Data = PrettyTable(["S.NO.", "Company Name", "Identifier"])
+
+# serive providing companies, entertainment services, other servies
+# google separate column : including youtube and all
+#                        : or can write as a google service
+a="#"
+a=fs.apply(a,"RED")
+Menu_Data.add_row(["1", "Netflix",a ])
+Menu_Data.add_row(["2", "Google", "C"])
+Menu_Data.add_row(["3", "Facebook", "A"])
+Menu_Data.add_row(["3", "X", "D"])
+
+Menu_Data._set_double_border_style()
+
+### Project Code Starter
+
+##linker
+lagger=0
+
+while lagger <1:
+    print ( Menu_Data )
+    a=input('Which < Companys > would you like to analyise?     :\t')
+# add by serial number
+# Awards
+# type of content metaplot
+# avability, usgae
+
+
+    ## Netflix Data
+    if a=="Netflix" or a == "1" or a =='netflix' or a=="#":
+      print("\n Netflix:".center(10),
+      '''
+      Netflix is an American subscription streaming service and production company.
+      It that allows our members to watch TV shows and movies without commercials on an internet-connected device.
+      ''')
+
+      ## Table Created
+      Netflix_table = PrettyTable ( ["Company" , "Netflix" ] )
+
+      ## Add rows
+      Netflix_table.add_row ( ["Owners" , " Reed Hastings \n Marc Randolph " ] )
+      Netflix_table.add_row ( ["",""] )
+      Netflix_table.add_row ( ["Founder In Year" , "1997" ] )
+      Netflix_table.add_row ( ["",""] )
+      Netflix_table.add_row ( ["Industry","Technology & Entertainment industry, mass media" ] )
+      Netflix_table.add_row ( ["",""] )
+      Netflix_table.add_row ( ["Key People" , "Reed Hastings (Chairman, Co-CEO)\nTed Sarandos (Co-CEO, CCO)\nGreg Peters (COO, CPO) "] )
+      print( Netflix_table )
+
+      ##### Check 1
+      #####  Netflix_table = fs.apply (Netflix_table, "RED/BOLD" )
+      #  print ( Netflix_table )
+      #  q = "Which year sows and movie you would like to count"
+      #        c=[]
+      #        for b in netflix_csv["release_year"]:
+      #               c=c+[b]
+      #        number of shows =
+      #        print(c.count(q))
+      #
+      #  else :
+      #              print()
+      #             else:
+      #       print()
+
+      # Options.add_row([""])
+
+
+      ## Options Table for Netflix
+      Options = PrettyTable ( ["Analyes Data " ,"Options "] )
+      Options.add_row( ["Rough Idea of Data in CSV" , " 1 " ] )
+
+            ##### once it is used it get soff the list
+
+                # include , no of shows, no. of serials, etc
+                    #inlude detailed andd # Individual Analyisis by the User
+
+      Options.add_row ( ["Graphical Analysis of CSV" , " 2 "] )
+      Options.add_row ( ["Exit Netflix" , " 4 "] )
+
+
+
+      ## Individual Analyisis by the User
+
+
+
+      ## Linker for escape phase 1
+      lagger_cutter = input ( "Do you want to see other's ?\t:" )
+      cutter=0
+      while cutter<1:
+            if lagger_cutter =="Yes" or lagger_cutter=="Ok" or lagger_cutter=="YES" or lagger_cutter=="yes":
+                print()
+                cutter += 1
+            elif lagger_cutter =="No" or lagger_cutter=="no" or lagger_cutter=="NO" or lagger_cutter=="Exit" :
+
+                ## Linker for escape phase 2
+                lagger_cutter2 = input("Are you sure you want to exit the programme?\t:")
+                if lagger_cutter2 =="Yes" or lagger_cutter2=="Ok" or lagger_cutter2=="YES" or lagger_cutter2=="yes":
+                    lagger+=1
+                    print('''\nThank you...
+                    Hope you enjoyed the project
+                    Bye , have a greatday a head.''')
+                    exit()
+                else :
+                        print(while_2)
+            else:
+                print("Please enter a valid option")
+                cutter+=1
+
+    else:
+        print(while_1)
