@@ -1,1 +1,673 @@
+### IMPORTS
+import numpy as np
+import pandas as pd
+import os
+import fontstyle as fs
+import matplotlib.pyplot as plt
+from prettytable import PrettyTable
+
+##Design
+print("=+=+="*100)
+
+
+##Underline Capture
+underline_start  = "\33[4m"
+Underline_end = "\033[0m"
+
+
+## intro
+intro = "Welcome to my project"
+intro = fs.apply(intro,"RED/BOLD/STRIKE/UNDERLINE")
+intro_print = intro.center(150)
+intro = "\33[4m "+"Welcome to my project"
+print( intro_print )
+
+print("\nIn this project: \nWe wil be analysing the data of the some of the top "
+      "Tech related Companies of the 21st century......\n")
+
+
+##Menu
+menu="*******Menu*******"
+menu_print=menu.center(50)
+print(underline_start + menu_print + Underline_end)
+
+
+## if if is not satisfied
+while_1=("Choose the correct Option")
+while_1=fs.apply(while_1,"RED,STRIKE,BLINK")
+while_2=fs.apply("Please enter a valid option!!","RED,STRIKE,BLINK")
+
+
+##Menu Table
+Menu_Data = PrettyTable(["S.NO.", "Company Name", "Identifier"])
+
+# serive providing companies, entertainment services, other servies
+# google separate column : including youtube and all
+#                        : or can write as a google service
+a="#"
+a=fs.apply(a,"RED")
+Menu_Data.add_row(["1", "Netflix",a ])
+Menu_Data.add_row(["2", "Google", "C"])
+Menu_Data.add_row(["3", "Facebook", "A"])
+Menu_Data.add_row(["3", "X", "D"])
+
+Menu_Data._set_double_border_style()
+
+
+##Additional Beauty
+error="ERROR!!!"
+error=fs.apply(error,"RED,BOLD")
+
+##csv calling
+netflix_csv=pd.read_csv("C:/Users/bhavesh/Downloads/netflix_titles.csv")
+
+
+
+### Project Code Starter
+
+##linker
+lagger=0
+
+while lagger <1:
+    print ( Menu_Data )
+    a=input('Which < Companys > would you like to analyise?     :\t')
+# add by serial number
+# Awards
+# type of content metaplot
+# avability, usgae
+
+
+    ## Netflix Data
+    if a=="Netflix" or a == "1" or a =='netflix' or a=="#":
+      print("\n Netflix:".center(10),
+      '''
+      Netflix is an American subscription streaming service and production company.
+      It that allows our members to watch TV shows and movies without commercials on an internet-connected device.
+      ''')
+
+      ## Table Created
+      Netflix_table = PrettyTable ( ["Company" , "Netflix" ] )
+
+      ## Add rows
+      Netflix_table.add_row ( ["Owners" , " Reed Hastings \n Marc Randolph " ] )
+      Netflix_table.add_row ( ["",""] )
+      Netflix_table.add_row ( ["Founder In Year" , "1997" ] )
+      Netflix_table.add_row ( ["",""] )
+      Netflix_table.add_row ( ["Industry","Technology & Entertainment industry, mass media" ] )
+      Netflix_table.add_row ( ["",""] )
+      Netflix_table.add_row ( ["Key People" , "Reed Hastings (Chairman, Co-CEO)\nTed Sarandos (Co-CEO, CCO)\nGreg Peters (COO, CPO) "] )
+      print( Netflix_table )
+      types_of_data = netflix_csv['type'].unique ()
+      len_type = len ( types_of_data )
+
+      ##### Check 1
+      #####  Netflix_table = fs.apply (Netflix_table, "RED/BOLD" )
+      #  print ( Netflix_table )
+      #  q = "Which year sows and movie you would like to count"
+      #        c=[]
+      #        for b in netflix_csv["release_year"]:
+      #               c=c+[b]
+      #        number of shows =
+      #        print(c.count(q))
+      #
+      #  else :
+      #              print()
+      #             else:
+      #       print()
+
+      # Options.add_row([""])
+
+
+      ## Options Table for Netflix
+      Options = PrettyTable ( ["Analyes Data " ,"Options "] )
+      Options.add_row( ["Rough Idea of Data in CSV" , " 1 " ] )
+
+            ##### once it is used it get soff the list
+
+                # include , no of shows, no. of serials, etc
+                    #inlude detailed andd # Individual Analyisis by the User
+
+      Options.add_row ( ["Get into More Commands" , " 2 "] )
+      Options.add_row ( ["Graphical Analysis of CSV" , " 3 "] )
+      Options.add_row ( ["Specific Analysis" , " 4 "] )
+      Options.add_row ( ["Exit Netflix Data Analysis" , " 5 "] )
+      Options.add_row ( ["Exit Programe" , " 6 "] )
+
+
+
+
+      netflix_while1=0
+
+      while netflix_while1 < 1 :
+          print ( Options )
+          option_checker = int ( input ( "Which option would like to choose\t:\t" ) )
+          if option_checker==1:
+              print ( "\nThe given csv is on Netflix\n" )
+              print ( 'The csv contains\t:\n' )
+              nod = netflix_csv['show_id'].count ()
+              print ( 'DATA of' , nod , "Shows" )
+                                                                            ####Color it
+
+              print ( 'Netflix contain:' , types_of_data)
+              tod = netflix_csv['director'].count ()
+              print ( "The data is directed by about" , tod , "people" )
+              noc = 0
+              for l in netflix_csv['country'].unique () :
+                      noc += 1
+              print( "The shows are available in around " , noc , "countries" )
+
+              continuer_netflix=input("\nWould you like to explore more options?\t:\t")
+              if continuer_netflix == 'Yes' or continuer_netflix=="YES" or continuer_netflix=="Ok" or continuer_netflix=="yes":
+                  print()
+              else:
+                  netflix_while1+=1
+
+          elif option_checker == 2 :
+
+
+
+              netflix_while2=0
+              while netflix_while2<1:
+                  Options1 = PrettyTable ( ["Analyes Data " , "Options "] )
+                  Options1.add_row ( ["On type of Data" , " 1 "] )
+                  Options1.add_row ( ["On Basis of Country" , " 2 "] )
+                  Options1.add_row ( ["Rating" , " 3 "] )
+                  ###
+                  Options1.add_row ( ["date_added" , " 4 "] )
+                  Options1.add_row ( ['release_year' , "5"] )
+                  Options1.add_row ( ["Duration" , " 6 "] )
+                  Options1.add_row ( ["Exit More Commands Prompt" , " 7 "] )
+                  Options1.add_row ( ["Exit Netflix Data Analysis" , " 8 "] )
+                  print ( Options1 )
+                  option_checker2 = int ( input ( "What would like to choose\t:\t" ) )
+
+                  if option_checker2 == 1 :
+                      print('The csv has',len_type,"Type of data which are",types_of_data)
+                      type_while_satisfier = 0
+                      while type_while_satisfier < len_type :
+                          type_while_counter = 0
+                          for b in netflix_csv['type'] :
+                              if b == types_of_data[type_while_satisfier] :
+                                  type_while_counter += 1
+                          print ( 'Number of' , types_of_data[type_while_satisfier] , "=" , type_while_counter )
+
+                          type_while_satisfier += 1
+
+                      asker_show_on_type = input ( '\nWould you like to see all data on basis of type\t:\t' )
+                      while_type_satisfier=0
+                      while while_type_satisfier<1:
+                          if asker_show_on_type == "yes" or asker_show_on_type == "YES" or asker_show_on_type == 'Yes' :
+                              asker_show_on_type2 = input ( 'Which one would like to choose?\t:\t' )
+                              for type_while in types_of_data :
+                                  if asker_show_on_type2 == type_while :
+                                      a = 0
+                                      while a < len ( netflix_csv ) :
+                                          if netflix_csv.loc[a]['type'] == type_while :
+                                              print ( netflix_csv.loc[a] )
+                                          a += 1
+
+                              while_type = input ( "\nWould you like to see for others also\t:\t" )
+                              if while_type == "Yes" or while_type == "YES" or while_type == "yes" :
+                                  print ()
+                              elif while_type == "No" or while_type == "NO" or while_type == "no" :
+                                  print ()
+                                  while_type_satisfier += 21
+                              else :
+                                  print ( error , "Please choose from Yes/No" )
+
+
+                          else :
+                              print ()
+                              while_type_satisfier += 1
+
+
+
+
+                      continuer_netflix2 = input ( "\nWould you like to explore more options?\t:\t" )
+
+
+
+                      if continuer_netflix2 == 'Yes' or continuer_netflix2 == "YES" or continuer_netflix2 == "Ok" or continuer_netflix2 == "yes" :
+                          print ()
+                      else :
+                          netflix_while2 += 1
+
+###add in while
+                  elif option_checker2==2:
+                      netflix_while3=0
+                      while netflix_while3<1:
+                          country_counter_netflix = 0
+                          country_input_netflix = input ( 'Which country would you like to check?:' )
+                          for d in netflix_csv['country'] :
+                              if d == country_input_netflix :
+                                  country_counter_netflix = country_counter_netflix + 1
+                          print ("\n", country_counter_netflix , "shows are available in your country" ,
+                                  country_input_netflix )
+
+                          asker_showon_country3 = input ( "\nWould you like to see the details of the shows also?\t:\t" )
+                          if asker_showon_country3 == "yes" or asker_showon_country3 == "YES" or asker_showon_country3 == "Yes" :
+                              a = 0
+                              c = 0
+                              while a < len ( netflix_csv ) :
+                                  if netflix_csv.loc[a]['country'] == country_input_netflix :
+                                      print ( netflix_csv.loc[a] )
+                                      c += 1
+                                  a += 1
+                          else:
+                              print()
+                          asker_showon_country2=input("\nWould like to see for other countries also?\t:\t")
+                          if asker_showon_country2=='YES'or asker_showon_country2=="Yes" or asker_showon_country2=="yes":
+                              print()
+                          else:
+                              netflix_while3+=1
+                      print("")
+                      continuer_netflix2 = input ( "Would you like to explore more options?\t:\t" )
+                      if continuer_netflix2 == 'Yes' or continuer_netflix2 == "YES" or continuer_netflix2 == "Ok" or continuer_netflix2 == "yes" :
+                          print ()
+                      else :
+                          netflix_while2 += 1
+
+
+                  elif option_checker2==3:
+                      print("\n Ratings available for the shows are :\n\n",netflix_csv['rating'].unique())
+                      asker_shown_rating = int(input ( "Would you like to choose specifically on your own\t :: \t press : 1 \n\t\t\t\t\t\t\t\t\t"
+                                                       "or\n \t\t\t\t\tComputer do the job\t ::\t press : 2\n\t\t\t\t\t\t\t:" ))
+                      while_rating=0
+
+
+
+
+                      while while_rating<1:
+                          if asker_shown_rating == 1 :
+                              asker_shown_rating_table = PrettyTable ( ["Options Available" , "Identifier"] )
+                              option_fixer = 1
+                              while option_fixer < len ( netflix_csv['rating'].unique () ) + 1 :
+                                  for b in netflix_csv['rating'].unique () :
+                                      asker_shown_rating_table.add_row ( [b , option_fixer] )
+                                      option_fixer += 1
+                              print ( asker_shown_rating_table )
+
+
+                              input_rating_1 = [int ( x ) for x in
+                                            input ( "Enter the ratings you would like to choose: " ).split ( "," )]
+                              for controller in input_rating_1 :
+                                  option_fixer2 = 1
+                                  while option_fixer2 < len ( netflix_csv['rating'].unique () ) + 1 :
+                                      for b in netflix_csv['rating'].unique () :
+
+                                          if controller == option_fixer2 :
+                                              c = 0
+                                              k = 0
+                                              for d in netflix_csv['rating'] :
+                                                  if d == b :
+                                                      c = c + 1
+                                              print ("\nThere are", c,"number of shows with rating:",b )
+                                          option_fixer2 += 1
+                              print ()
+                              asker_shown_rating2 = input ( "Would also like to see the data of the ratings?\t:\t" )
+                              if asker_shown_rating2=="Yes" or asker_shown_rating2=="yes" or asker_shown_rating2=="Yes":
+
+                                  for controller in input_rating_1 :
+                                      option_fixer3 = 1
+                                      while option_fixer3 < len ( netflix_csv['rating'].unique () ) + 1 :
+                                          for b in netflix_csv['rating'].unique () :
+                                              if controller == option_fixer3 :
+                                                  a = 0
+                                                  c = 0
+                                                  print('\nData with rating " ',b ,'"\t:')
+                                                  while a < len ( netflix_csv ) :
+                                                      if netflix_csv.loc[a]['rating'] == b :
+                                                          print ( netflix_csv.loc[a] )
+                                                          print()
+
+                                                      a += 1
+
+                                              option_fixer3 += 1
+                                          while_rating+=1
+                              else:
+                                  while_rating+=1
+                                  print()
+
+
+
+                          elif asker_shown_rating == 2 :
+                              print ()
+                              option_fixer3 = 1
+                              while option_fixer3 < len ( netflix_csv['rating'].unique () ) + 1 :
+                                  for b in netflix_csv['rating'].unique () :
+                                      option_fixer3 += 1
+                                      c = 0
+                                      for d in netflix_csv['rating'] :
+                                          if d == b :
+                                              c += 1
+                                      print ( "There are",c ,"shows with",b, 'rating ' )
+
+                              print()
+                              while_rating+=1
+                          else :
+                              print ( error , "Please select a valid option." )
+
+                      continuer_netflix2 = input ( "Would you like to explore more options?\t:\t" )
+                      if continuer_netflix2 == "Yes" or continuer_netflix2 == "YES" or continuer_netflix2 == "Ok" or continuer_netflix2 == "yes" :
+                          print()
+
+
+
+                      else :
+                              netflix_while2 += 1
+
+
+
+
+                  elif option_checker2==7:
+                      print()
+                      netflix_while2+=1
+                  elif option_checker2==8:
+                      print()
+                      netflix_while2+=1
+                      netflix_while1 += 3
+                  else :
+                        print(error,'\nPlease Select a valid command')
+
+          if option_checker == 4 :
+
+              while_specific = 0
+
+              k = 0
+
+              while_specific1 = 0
+
+              while while_specific < 1 :
+
+                  specific_table = PrettyTable ( ["Options" , "Identifier"] )
+
+                  specific_table.add_row ( ["See the Whole Record " , "1"] )
+
+                  specific_table.add_row ( ["Choose the feilds to see from" , "2"] )
+
+                  specific_table.add_row ( ["See the feilds Available" , "3"] )
+
+                  print ( specific_table )
+
+                  specific_table_input = int ( input ( 'Which option would you like to choose\t:\t' ) )
+
+                  t = 0
+
+                  while while_specific1 < 1 :
+
+                      print ()
+
+                      if specific_table_input == 1 :
+
+                          print ()
+
+                          while k < 1 :
+
+                              print ()
+
+                              while t < 1 :
+                                  print ( ("Type 'Dont Know' if you want to see feilds").center ( 200 ) )
+
+                                  t += 1
+
+                              specific_input = [(x) for x in
+
+                                                input (
+                                                    "Enter the feild on which you would like to identify the data: " ).split (
+
+                                                    "," )]
+
+                              if specific_input == ["Dont Know"] :
+
+                                  print ( "Following are the fields available :\n" )
+
+                                  for netflix_table_fields in netflix_csv :
+                                      print ( netflix_table_fields )
+
+                                  k += 1
+
+                                  t += 1
+
+                                  print ()
+
+                              else :
+
+                                  for controller2 in specific_input :
+
+                                      asker = input (
+
+                                          "Enter the detail of the column on the basis of the chosen field \t:\t" )
+
+                                      a = 0
+
+                                      while a < len ( netflix_csv ) :
+
+                                          if netflix_csv.loc[a][controller2] == asker :
+                                              print ( netflix_csv.loc[a] )
+
+                                          a += 1
+
+                                  continuer_netflix2 = input ( "Would you like to see for other feilds?\t:\t" )
+
+                                  if continuer_netflix2 == "Yes" or continuer_netflix2 == "YES" or continuer_netflix2 == "Ok" or continuer_netflix2 == "yes" :
+
+                                      print ()
+
+                                      t = 10
+
+                                      k = 10
+
+
+                                  else :
+
+                                      k = 10
+
+                                      while_specific1 = 10
+
+                          specific_input = [(x) for x in
+
+                                            input (
+                                                "Enter the feild on which you would like to identify the data:" ).split (
+
+                                                "," )]
+
+                          for controller2 in specific_input :
+
+                              asker = input (
+
+                                  "Enter the detail of the column on the basis of the chosen field \t:\t" )
+
+                              a = 0
+
+                              while a < len ( netflix_csv ) :
+
+                                  if netflix_csv.loc[a][controller2] == asker :
+                                      print ( netflix_csv.loc[a] )
+
+                                  a += 1
+
+                          continuer_netflix2 = input ( "Would you like to see for other feilds?\t:\t" )
+
+                          if continuer_netflix2 == "Yes" or continuer_netflix2 == "YES" or continuer_netflix2 == "Ok" or continuer_netflix2 == "yes" :
+
+                              print ()
+
+
+                          else :
+
+                              print ()
+
+                              while_specific1 += 1
+
+                      if specific_table_input == 2 :
+
+                          print ()
+                          while k < 1 :
+                              print ()
+
+                              while t < 1 :
+                                  print ( ("Type 'Dont Know Feilds' if you want to see feilds").center ( 200 ) )
+                                  t += 1
+                              specific_input3 = [(x) for x in
+                                                 input (
+                                                     "Enter the field on which you would like to identify the data: " ).split (
+                                                     "," )]
+                              specific_input4 = [(x) for x in
+                                                 input (
+                                                     "Enter the columns you would like to see " ).split (
+                                                     "," )]
+                              for controller2 in specific_input3 :
+
+                                  asker2 = [(x) for x in input (
+                                      "Enter the detail of the column on the basis of the chosen field" ).split (
+                                      "," )]
+                                  for controller5 in asker2 :
+                                      a = 0
+
+                                      while a < len ( netflix_csv ) :
+                                          if netflix_csv.loc[a][controller2] == controller5 :
+                                              for controller3 in specific_input4 :
+                                                  print ( netflix_csv.loc[a][controller3] )
+                                          a += 1
+
+                          continuer_netflix2 = input ( "Would you like to see for other feilds?\t:\t" )
+                          if continuer_netflix2 == "Yes" or continuer_netflix2 == "YES" or continuer_netflix2 == "Ok" or continuer_netflix2 == "yes" :
+                              print ()
+                              k = 1
+                          else :
+                              print ()
+                              while_specific1 += 1
+                              while_specific = 1
+
+
+                      elif specific_table_input == 3 :
+
+                          print ()
+
+                          for netflix_table_fields in netflix_csv :
+                              print ( netflix_table_fields )
+
+                              while_specific1 += 1
+
+                          print ()
+
+                      elif specific_table_input == 4 :
+
+                          netflix_while1 = 0
+
+                          while_specific1 += 1
+
+                          while_specific += 1
+
+
+                      else :
+
+                          print ( error , "/n Please select a valid Command" )
+
+
+
+
+                  continuer_netflix2 = input ( "\nWould you like to explore more options?\t:\t" )
+                  if continuer_netflix2 == "Yes" or continuer_netflix2 == "YES" or continuer_netflix2 == "Ok" or continuer_netflix2 == "yes" :
+                      print ()
+                      k = 0
+                      specific_table.add_row ( ["Exit Specific Analysis" , "4"] )
+
+
+
+
+
+
+                  else :
+                      while_specific += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          elif option_checker==5:
+              print()
+              netflix_while1+=3
+          elif option_checker==6:
+              print ( '''\nThank you...
+                                  Hope you enjoyed the project
+                                  Bye , have a great day a head.''' )
+              exit ()
+
+          else:
+              print("\n",error,"\nPlease select a valid option.\n")
+
+
+
+    #####apply full time analyis
+      ## Individual Analyisis by the User ### kala kala specify karna
+
+
+
+      ## Linker for escape phase 1
+
+      cutter=0
+
+
+      while cutter<1:
+          lagger_cutter3 = 0
+          lagger_cutter = input ( "Do you want to see other's ?\t:" )
+          while lagger_cutter3<1:
+              if lagger_cutter =="Yes" or lagger_cutter=="Ok" or lagger_cutter=="YES" or lagger_cutter=="yes":
+                  print()
+                  lagger_cutter3+=1
+                  cutter += 1
+              elif lagger_cutter =="No" or lagger_cutter=="no" or lagger_cutter=="NO" or lagger_cutter=="Exit" :
+                  print()
+
+                  ## Linker for escape phase 2
+                  lagger_cutter2 = input ( "Are you sure you want to exit the programme?\t:" )
+                  if lagger_cutter2 == "Yes" or lagger_cutter2 == "Ok" or lagger_cutter2 == "YES" or lagger_cutter2 == "yes" :
+                      lagger += 1
+                      print ( '''\nThank you...
+                                      Hope you enjoyed the project
+                                      Bye , have a greatday a head.''' )
+                      exit ()
+                  elif lagger_cutter2=="No" or lagger_cutter2=="no" or lagger_cutter2=="NO":
+                      print()
+                      lagger_cutter3+=1
+                  else :
+                      print ( while_2 )
+              else :
+                  print ( while_2 )
+                  print()
+
+
+
+
+    else:
+        print(while_1)
 
